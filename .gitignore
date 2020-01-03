@@ -1,0 +1,17 @@
+**/.DS_Store
+
+/.gradle/
+/build/
+gradlew*
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Cache of project
+.gradletasknamecache
+
+
+# IntelliJ
+/out/
+/.idea/
+*.iml
