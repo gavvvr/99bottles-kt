@@ -13,7 +13,7 @@ class Bottles {
     }
 
     fun verses(from: Int, to: Int): String {
-        return (from + to).toString()
+        return arrayOf(verse(from), verse(to)).joinToString(System.lineSeparator())
     }
 
     fun song() = ""
