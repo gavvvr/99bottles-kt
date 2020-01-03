@@ -18,16 +18,23 @@ class Bottles {
 
     private val versesSeparator = System.lineSeparator()
 
-    fun verse(num: Int): String {
-        val item = Item(num, "bottle", "beer", "on the wall")
+    fun verses(from: Int, to: Int): String {
+        val item = Item(from, "bottle", "beer", "on the wall")
+        return (from downTo to).joinToString(versesSeparator) { verse(it, item) }
+    }
 
+    fun verse(num: Int, item: Item = Item(num, "bottle", "beer", "on the wall")): String {
+        return makeVerse(item)
+    }
+
+    private fun makeVerse(item: Item): String {
         val initialSentence = "${item.status(true).capitalize()}, ${item.status(false)}."
         val whatToDo: String
-        if (num == 0) {
+        if (item.number == 0) {
             whatToDo = buy()
             item.number = 99
         } else {
-            whatToDo = take(num == 1)
+            whatToDo = take(item.number == 1)
             item.number--
         }
         val actionSentence = "$whatToDo, ${item.status(true)}."
@@ -43,9 +50,6 @@ class Bottles {
         return "Go to the store and buy some more"
     }
 
-    fun verses(from: Int, to: Int): String {
-        return (from downTo to).joinToString(versesSeparator) { verse(it) }
-    }
-
     fun song() = verses(99, 0)
+
 }
