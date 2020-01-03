@@ -19,5 +19,5 @@ class Bottles {
         return (from downTo to).joinToString(versesSeparator) { verse(it) }
     }
 
-    fun song() = ""
+    fun song() = verses(99, 0)
 }
