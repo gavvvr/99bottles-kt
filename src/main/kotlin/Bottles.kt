@@ -1,4 +1,7 @@
 class Bottles {
+
+    private val versesSeparator = System.lineSeparator()
+
     fun verse(num: Int): String {
         val firstSentence = when (num) {
             0 -> "No more bottles of beer on the wall, no more bottles of beer."
@@ -13,7 +16,7 @@ class Bottles {
     }
 
     fun verses(from: Int, to: Int): String {
-        return arrayOf(verse(from), verse(to)).joinToString(System.lineSeparator())
+        return (from downTo to).joinToString(versesSeparator) { verse(it) }
     }
 
     fun song() = ""
