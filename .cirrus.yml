@@ -1,0 +1,12 @@
+container:
+  image: gradle:6.0.1-jdk11
+
+check_task:
+  gradle_cache:
+    folder: /root/.gradle/caches/
+    fingerprint_script: cat build.gradle
+    populate_script: gradle dependencies
+  test_script: >-
+    gradle build
+    && rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+    && rm -fr $HOME/.gradle/caches/*/plugin-resolution/
