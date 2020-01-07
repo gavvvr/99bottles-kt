@@ -1,0 +1,9 @@
+kind: pipeline
+type: docker
+name: 99bottles-kt
+
+steps:
+  - name: Build
+    image: gradle:6.0.1-jdk8
+    commands:
+      - gradle build
