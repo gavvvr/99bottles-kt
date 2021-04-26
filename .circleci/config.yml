@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: gradle:6.0.1-jdk8
+      - image: gradle:6.8.3-jdk8
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
