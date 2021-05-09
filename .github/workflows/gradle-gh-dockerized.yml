@@ -1,0 +1,15 @@
+name: Gradle docker-based CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: gradle:6.0.1-jdk11
+      volumes: 
+        - $HOME/.gradle/:/root/.gradle/
+    steps:
+      - uses: actions/checkout@v1
+      - name: Build with Gradle
+        run: gradle build
